@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Tính lãi kép ngân hàng</title>
+  </head>
+  <body>
+    <label for="">Nhập số tiền cho vay ban đầu: </label>
+    <input type="number" id="money" />
+    <br /><br />
+    <label for="">Nhập số tháng cho vay: </label>
+    <input type="number" id="month" />
+    <br /><br />
+    <label for="">Lãi suất hàng tháng là (%): </label>
+    <input type="number" id="rate" />
+    <br /><br />
+    <button onclick="calculateRate()">Tính lãi ngân hàng</button>
+
+    <br /><br />
+    <label for="">Kết quả - Tiền lãi ngân hàng là: </label>
+    <p id="id-rate"></p>
+
+    <script>
+      function calculateRate() {
+        const initialAmount = document.getElementById("money").value;
+        const numbersMonth = document.getElementById("month").value;
+        const rateMonth = document.getElementById("rate").value;
+        const result =
+          initialAmount *
+            Math.pow(1 + rateMonth / 100, numbersMonth) -
+          initialAmount;
+        console.log("Kq", result);
+        document.getElementById("id-rate").innerHTML =
+          result.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
